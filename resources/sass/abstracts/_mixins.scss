@@ -1,0 +1,60 @@
+
+
+@mixin clearfix { //for the row height coz of float property
+    &::after {
+        content: "";
+        display: table;
+        clear: both;
+    }
+}
+
+//element postioning
+@mixin absCenter {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+
+
+
+
+
+//Media Query Manager
+/*
+
+
+@mixin respond-phone {
+    @media (max-width: 600px) { @content }; //@content we can pass an entire block of code}
+0 - 600px:      Phone
+600 - 900px:    Tablet Portrait
+900 - 1200px:   Tablet Landscape
+1200 - 1800px:  Desktop, normal styles apply
+1800px +:       Big Desktop
+
+$breakpoint argurement choices:
+- phone 
+- tab-port
+- tab-land
+- big-desktop
+
+1em = 16px
+*/
+
+@mixin respond($breakpoint) {
+    @if $breakpoint == phone {
+        //screen applies to screen not in print
+        @media only screen and  (max-width: 37.5em) { @content }; //600px
+    }
+    @if $breakpoint == tab-port {
+        @media only screen and (max-width: 56.25em) { @content }; //900px
+    }
+    @if $breakpoint == tab-land {
+        @media only screen and (max-width: 75em) { @content }; //1200px
+    }
+    @if $breakpoint == big-desktop {
+        @media only screen and (min-width: 112.5em) { @content }; //1800px
+    }
+}
+

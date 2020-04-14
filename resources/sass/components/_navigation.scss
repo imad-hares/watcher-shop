@@ -1,0 +1,254 @@
+////////////////////////////////////////
+// LOGO
+.logo {
+  padding-top: 1rem;
+  width: 7rem;
+  @include respond(phone) {
+    width: 6rem;
+  }
+  &__img {
+    width: 100%;
+  }
+  &__text {
+    color: $color-primary-dark;
+  }
+  @include respond(tab-port) {
+    margin-left: 40%;
+  }
+}
+
+////////////////////////////////////////
+// USER NAVIGATION
+.navbar {
+  align-self: stretch;
+  flex: 0 0 40%;
+  display: flex;
+  align-items: center;
+  font-weight: 500;
+
+  &-links {
+    color: $color-primary-dark;
+
+    @include respond(tab-port) {
+      display: none;
+    }
+  }
+
+  & > * {
+    padding: 0 2rem;
+    cursor: pointer;
+    height: 100%;
+    display: flex;
+    align-items: center;
+  }
+
+  & > *:hover {
+    background-color: lighten($text-color-light, 10%);
+    border-top: 2px solid $color-primary-dark;
+  }
+
+  &__icon-box {
+    position: relative;
+  }
+
+  &__icon {
+    height: 2.45rem;
+    width: 2.45rem;
+    fill: $color-primary-dark;
+    @include respond(phone) {
+      height: 2rem;
+      width: 2rem;
+    }
+  }
+
+  &__notification {
+    font-size: 0.8rem;
+    height: 1.75rem;
+    width: 1.75rem;
+    border-radius: 50%;
+    background-color: $color-primary;
+    color: $text-color-white;
+    position: absolute;
+    top: 1.5rem;
+    right: 1.1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  &__user-photo {
+    height: 3.75rem;
+    border-radius: 50%;
+    margin-right: 1rem;
+  }
+
+  &-user {
+    justify-content: flex-end;
+  }
+}
+.main-sub {
+  position: absolute;
+  display: none;
+  height: 0;
+  transition: all 2s ease;
+  background-color: $bg-secondary;
+  z-index: 10;
+}
+
+.navbar__shop:hover + .main-sub {
+  display: flex;
+  justify-content: space-between;
+  height: 510px;
+  width: 87%;
+  top: 9rem;
+}
+
+/* The sticky class is added to the navbar with JS when it reaches its scroll position */
+.sticky {
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
+
+.sticky + .main {
+  padding-top: 9rem;
+}
+
+.mobile-sticky {
+  position: fixed;
+}
+
+//MOBILE NAV
+#mobile-nav {
+  height: 0;
+  z-index: 1000;
+}
+#menuToggle {
+  display: none;
+  position: relative;
+  top: 25px;
+  left: 25px;
+  padding-left: 10px;
+  z-index: 100;
+  -webkit-user-select: none;
+  user-select: none;
+  @include respond(tab-port) {
+    display: block;
+  }
+  @include respond(phone) {
+    left: 0;
+  }
+}
+
+#menuToggle a {
+  text-decoration: none;
+  color: #232323;
+
+  transition: color 0.3s ease;
+}
+
+#menuToggle a:hover {
+  color: $color-primary;
+}
+
+#menuToggle input {
+  display: block;
+  width: 40px;
+  height: 32px;
+  position: absolute;
+  top: -7px;
+  left: -5px;
+
+  cursor: pointer;
+
+  opacity: 0; /* hide this */
+  z-index: 100; /* and place it over the hamburger */
+
+  -webkit-touch-callout: none;
+}
+
+/*
+ * Just a quick hamburger
+ */
+#menuToggle span {
+  display: block;
+  width: 33px;
+  height: 4px;
+  margin-bottom: 5px;
+  position: relative;
+  background: $text-color;
+  border-radius: 3px;
+  z-index: 1;
+  transform-origin: 4px 0px;
+
+  transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1),
+    background 0.5s cubic-bezier(0.77, 0.2, 0.05, 1), opacity 0.55s ease;
+}
+
+#menuToggle span:first-child {
+  transform-origin: 0% 0%;
+}
+
+#menuToggle span:nth-last-child(2) {
+  transform-origin: 0% 100%;
+}
+
+/* 
+ * Transform all the slices of hamburger
+ * into a crossmark.
+ */
+#menuToggle input:checked ~ span {
+  opacity: 1;
+  transform: rotate(45deg) translate(-2px, -1px);
+  background: #232323;
+}
+
+/*
+ * But let's hide the middle one.
+ */
+#menuToggle input:checked ~ span:nth-last-child(3) {
+  opacity: 0;
+  transform: rotate(0deg) scale(0.2, 0.2);
+}
+
+/*
+ * Ohyeah and the last one should go the other direction
+ */
+#menuToggle input:checked ~ span:nth-last-child(2) {
+  transform: rotate(-45deg) translate(0, -1px);
+}
+
+/*
+ * Make this absolute positioned
+ * at the top left of the screen
+ */
+#menu {
+  position: absolute;
+  width: 300px;
+  min-height: 100vh;
+  margin: -100px 0 0 -50px;
+  padding: 50px;
+  padding-top: 125px;
+
+  background: #ededed;
+  list-style-type: none;
+  -webkit-font-smoothing: antialiased;
+  /* to stop flickering of text in safari */
+
+  transform-origin: 0% 0%;
+  transform: translate(-100%, 0);
+
+  transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1);
+}
+
+#menu li {
+  padding: 10px 0;
+  font-size: 22px;
+}
+
+/*
+ * And let's slide it in from the left
+ */
+#menuToggle input:checked ~ ul {
+  transform: none;
+}

@@ -1,0 +1,70 @@
+.hero {
+  width: 100%;
+  display: flex;
+  min-height: 500px;
+  padding-top: 1rem;
+  margin: 0 auto;
+  justify-content: space-between;
+  background-color: $bg-secondary;
+  margin-bottom: 5rem;
+  &-wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0 auto;
+    max-width: 120rem;
+    width: 80%;
+    padding-bottom: 2rem;
+    transition: transform 0.2s ease-in-out;
+
+    @include respond(phone) {
+      flex-direction: column-reverse;
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+  }
+
+  &-imageWrapper {
+    width: 38rem;
+    height: 52rem;
+    padding-top: 4rem;
+    animation: moveInLeft 1s ease-out;
+    @include respond(phone) {
+      width: 18rem;
+      height: 32rem;
+      padding-top: 1rem;
+    }
+    img {
+      width: 100%;
+      height: 100%;
+    }
+  }
+
+  &-textHeading {
+    font-size: 7rem;
+    font-weight: 900;
+    line-height: 1em;
+    padding-bottom: 3rem;
+    color: $text-color-black;
+    animation: moveInRight 1s ease-out;
+
+    @include respond(tab-land) {
+      font-size: 6rem;
+    }
+    @include respond(phone) {
+      font-size: 4rem;
+      text-align: center;
+      justify-content: center;
+    }
+  }
+  &-textSpan {
+    margin-top: 1rem;
+    font-size: 2.8rem;
+    animation: moveInRight 1.5s ease-out;
+  }
+
+  &-button {
+    margin-top: 5rem;
+    animation: moveInBottom 1s ease-out;
+  }
+}

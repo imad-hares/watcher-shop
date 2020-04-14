@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link
+            rel="stylesheet"
+            href="https://unpkg.com/flickity@2/dist/flickity.min.css"
+        />
+        <title>Vue Mastery | JDI!</title>
+    </head>
+    <style>
+        .product {
+            display: flex;
+            justify-content: space-evenly;
+        }
+        .product-image {
+            max-width: 200px;
+            max-height: 300px;
+        }
+        img {
+            width: 100%;
+            height: 100%;
+        }
+    </style>
+    <body>
+        <div id="app">
+            <section class="product">
+                <div class="product-image">
+                    <img v-bind:src="image" :alt="altText" />
+                </div>
+
+                <div class="product-info">
+                    <h1 class="product-name">{{ title }}</h1>
+                    <p class="product-description">{{ description }}</p>
+                    <div class="product-stocks">
+                        <h3 v-if="inventory > 10" class="product-instock">
+                            In Stock
+                        </h3>
+                        <h3 v-else-if="inventory == 10">
+                            Almost sold out!
+                        </h3>
+                        <h3 v-else class="product-outstock">Out of Stock</h3>
+                    </div>
+                </div>
+                <div class="product-onsale">
+                    <span v-show="onSale">On Sale</span>
+                </div>
+                <ul class="product-details">
+                    <li v-for="detail in details" class="product-list">
+                        {{ detail }}
+                    </li>
+                </ul>
+
+                <div
+                    v-for="(variant, index) in variants"
+                    :key="variant.variantId"
+                    :style="{backgroundColor: variant.variantColor}"
+                    @mouseover="updateProduct(index)"
+                    class="product-variants color-box"
+                >
+                    <p class="product-color">
+                        {{ variant.variantColor }}
+                    </p>
+                </div>
+                <div v-for="size in sizes" class="product-sizes">
+                    <p>{{size}}</p>
+                </div>
+                <div class="cart">
+                    <p>Cart {{ cart }}</p>
+                    <button
+                        v-on:click="addToCart"
+                        :disabled="!inStock"
+                        :class="{disabledButton: !inStock}"
+                    >
+                        Add to Cart
+                    </button>
+                </div>
+            </section>
+        </div>
+        <script src="https://unpkg.com/vue"></script>
+        <script src="main.js"></script>
+    </body>
+</html>

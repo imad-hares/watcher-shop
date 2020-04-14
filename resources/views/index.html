@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link
+      href="https://fonts.googleapis.com/css?family=Baloo+Chettan+2:400,500,600,700,800|Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i&display=swap"
+      rel="stylesheet"
+    />
+
+    <!--<link rel="stylesheet" href="css/icon-font.css">-->
+    <link rel="stylesheet" href="css/style.comp.css" />
+    <link rel="shortcut icon" type="image/png" href="img/favicon.png" />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/flickity@2/dist/flickity.min.css"
+    />
+    <title>Watcher | Exciting watches for adventurous people</title>
+  </head>
+  <body>
+    <!--
+    <header class="header">
+      <nav class="navbar">
+        <div class="navbar-left navbar-sections">
+          <a href="#"><h1 class="logo">WATCHERs</h1></a>
+        </div>
+        <div class="navbar-center navbar-sections">
+          <ul class="navbar-list">
+            <li class="navbar-list-item">Main</li>
+            <div class="main-sub">
+              this is sub
+            </div>
+            <li class="navbar-list-item">All</li>
+          </ul>
+        </div>
+        <div class="navbar-right navbar-sections">
+          <div class="navbar-list right">
+          
+          </div>
+        </div>
+      </nav>
+  
+    </header>
+-->
+    <nav role="navigation" id="mobile-nav">
+      <div id="menuToggle">
+        <!--
+    A fake / hidden checkbox is used as click reciever,
+    so you can use the :checked selector on it.
+    -->
+        <input type="checkbox" />
+
+        <!--
+    Some spans to act as a hamburger.
+    
+    They are acting like a real hamburger,
+    not that McDonalds stuff.
+    -->
+        <span></span>
+        <span></span>
+        <span></span>
+
+        <!--
+    Too bad the menu has to be inside of the button
+    but hey, it's pure CSS magic.
+    -->
+        <ul id="menu">
+          <a href="#"><li>Shop</li></a>
+          <a href="#"><li>Brands</li></a>
+          <a href="#"><li>Über Uns</li></a>
+          <a href="#"><li>Kontakt</li></a>
+        </ul>
+      </div>
+    </nav>
+    <!--END MOBILE NAV-->
+    <div class="header-container" id="navbar">
+      <header class="header">
+        <div class="logo">
+          <img src="/img/logo.png" alt="WATCHERs" />
+        </div>
+        <div class="navbar navbar-links">
+          <div class="navbar__icon-box navbar__shop">
+            <a href="#">Shop</a>
+          </div>
+          <div class="navbar__icon-box">
+            <a href="#brands">Brands</a>
+          </div>
+          <div class="navbar__icon-box">
+            <a href="#">Über uns</a>
+          </div>
+          <div class="navbar__icon-box">
+            <a href="#">Kontakt</a>
+          </div>
+        </div>
+
+        <nav class="navbar navbar-user">
+          <div class="navbar__icon-box">
+            <svg class="navbar__icon">
+              <use xlink:href="img/sprite.svg#icon-search"></use>
+            </svg>
+          </div>
+          <div class="navbar__icon-box">
+            <svg class="navbar__icon">
+              <use xlink:href="img/sprite.svg#icon-user"></use>
+            </svg>
+          </div>
+          <div class="navbar__icon-box">
+            <svg class="navbar__icon">
+              <use xlink:href="img/sprite.svg#icon-cart"></use>
+            </svg>
+            <span class="navbar__notification">2</span>
+          </div>
+          <!-- <div class="user-nav__user">
+          <img
+            src="img/user.jpg"
+            alt="User photo"
+            class="user-nav__user-photo"
+          />
+          <span class="user-nav__user-name">Imad</span>
+        </div>-->
+        </nav>
+      </header>
+    </div>
+    <main class="main" id="main">
+      <div class="hero">
+        <div class="hero-wrapper">
+          <div class="hero-textWrpper">
+            <h1 class="hero-textHeading">
+              Wir helfen Ihnen <br />Ihre traum Uhr zufinden
+            </h1>
+            <p class="hero-textSpan">
+              Von über 9.000 Modellen von über 200 Marken im Laden
+            </p>
+
+            <div class="hero-button">
+              <span>ZEIG ALLE PRODUKTE</span>
+            </div>
+          </div>
+          <figure class="hero-imageWrapper">
+            <img src="/img/hero-gif.gif" alt="Watches" class="hero-image" />
+          </figure>
+        </div>
+      </div>
+      <!-- END HERO-->
+
+      <section class="wrapper">
+        <div class="section-heading text-center">
+          <h1>Wir haben sie Alle</h1>
+
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias
+            facilis a saepe quos, autem commodi nostrum voluptas, laboriosam
+            natus at hic perferendis esse velit accusamus pariatur rerum facere
+            deserunt possimus.
+          </p>
+        </div>
+        <div class="spacer"></div>
+        <div class="tab text-center">
+          <button
+            class="tab-links button active"
+            onclick="openCity(event, 'featured')"
+          >
+            Featured</button
+          >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          <button class="tab-links button" onclick="openCity(event, 'onsale')">
+            On Sale
+          </button>
+        </div>
+        <br /><br /><br />
+
+        <div id="featured" class="tab-content">
+          <div class="product">
+            <a href="{{ route('shop.product', $product->slug) }}"
+              ><img src="/img/omega-seamaster.jpg" alt="product"
+            /></a>
+            <a href="{{ route('shop.product', $product->slug) }}"
+              ><div class="product-name">ROLEX Alpha Omega</div></a
+            >
+            <div class="product-price">
+              10,000 EUR
+            </div>
+          </div>
+          <div class="product">
+            <a href="{{ route('shop.product', $product->slug) }}"
+              ><img src="/img/products/analogue-4.jpg" alt="product"
+            /></a>
+            <a href="{{ route('shop.product', $product->slug) }}"
+              ><div class="product-name">ROLEX Alpha Omega</div></a
+            >
+            <div class="product-price">
+              10,000 EUR
+            </div>
+          </div>
+          <div class="product">
+            <a href="{{ route('shop.product', $product->slug) }}"
+              ><img src="/img/products/clock-4.jpg" alt="product"
+            /></a>
+            <a href="{{ route('shop.product', $product->slug) }}"
+              ><div class="product-name">ROLEX Alpha Omega</div></a
+            >
+            <div class="product-price">
+              10,000 EUR
+            </div>
+          </div>
+          <div class="product">
+            <a href="{{ route('shop.product', $product->slug) }}"
+              ><img src="/img/products/digital-6.jpg" alt="product"
+            /></a>
+            <a href="{{ route('shop.product', $product->slug) }}"
+              ><div class="product-name">ROLEX Alpha Omega</div></a
+            >
+            <div class="product-price">
+              10,000 EUR
+            </div>
+          </div>
+          <div class="product">
+            <a href="{{ route('shop.product', $product->slug) }}"
+              ><img src="/img/products/dualtime-7.jpg" alt="product"
+            /></a>
+            <a href="{{ route('shop.product', $product->slug) }}"
+              ><div class="product-name">ROLEX Alpha Omega</div></a
+            >
+            <div class="product-price">
+              10,000 EUR
+            </div>
+          </div>
+          <div class="product">
+            <a href="{{ route('shop.product', $product->slug) }}"
+              ><img src="/img/omega-seamaster.jpg" alt="product"
+            /></a>
+            <a href="{{ route('shop.product', $product->slug) }}"
+              ><div class="product-name">ROLEX Alpha Omega</div></a
+            >
+            <div class="product-price">
+              10,000 EUR
+            </div>
+          </div>
+          <div class="product">
+            <a href="{{ route('shop.product', $product->slug) }}"
+              ><img src="/img/omega-seamaster.jpg" alt="product"
+            /></a>
+            <a href="{{ route('shop.product', $product->slug) }}"
+              ><div class="product-name">ROLEX Alpha Omega</div></a
+            >
+            <div class="product-price">
+              10,000 EUR
+            </div>
+          </div>
+          <div class="product">
+            <a href="{{ route('shop.product', $product->slug) }}"
+              ><img src="/img/omega-seamaster.jpg" alt="product"
+            /></a>
+            <a href="{{ route('shop.product', $product->slug) }}"
+              ><div class="product-name">ROLEX Alpha Omega</div></a
+            >
+            <div class="product-price">
+              10,000 EUR
+            </div>
+          </div>
+        </div>
+        <div id="onsale" class="tab-content">
+          <div class="product">
+            <a href="{{ route('shop.product', $product->slug) }}"
+              ><img src="/img/omega-seamaster.jpg" alt="product"
+            /></a>
+            <a href="{{ route('shop.product', $product->slug) }}"
+              ><div class="product-name">TJE LOMG</div></a
+            >
+            <div class="product-price">
+              10,000 EUR
+            </div>
+          </div>
+          <div class="product">
+            <a href="{{ route('shop.product', $product->slug) }}"
+              ><img src="/img/omega-seamaster.jpg" alt="product"
+            /></a>
+            <a href="{{ route('shop.product', $product->slug) }}"
+              ><div class="product-name">TJE LOMG</div></a
+            >
+            <div class="product-price">
+              10,000 EUR
+            </div>
+          </div>
+          <div class="product">
+            <a href="{{ route('shop.product', $product->slug) }}"
+              ><img src="/img/omega-seamaster.jpg" alt="product"
+            /></a>
+            <a href="{{ route('shop.product', $product->slug) }}"
+              ><div class="product-name">TJE LOMG</div></a
+            >
+            <div class="product-price">
+              10,000 EUR
+            </div>
+          </div>
+          <div class="product">
+            <a href="{{ route('shop.product', $product->slug) }}"
+              ><img src="/img/omega-seamaster.jpg" alt="product"
+            /></a>
+            <a href="{{ route('shop.product', $product->slug) }}"
+              ><div class="product-name">TJE LOMG</div></a
+            >
+            <div class="product-price">
+              10,000 EUR
+            </div>
+          </div>
+          <div class="product">
+            <a href="{{ route('shop.product', $product->slug) }}"
+              ><img src="/img/omega-seamaster.jpg" alt="product"
+            /></a>
+            <a href="{{ route('shop.product', $product->slug) }}"
+              ><div class="product-name">TJE LOMG</div></a
+            >
+            <div class="product-price">
+              10,000 EUR
+            </div>
+          </div>
+          <div class="product">
+            <a href="{{ route('shop.product', $product->slug) }}"
+              ><img src="/img/omega-seamaster.jpg" alt="product"
+            /></a>
+            <a href="{{ route('shop.product', $product->slug) }}"
+              ><div class="product-name">TJE LOMG</div></a
+            >
+            <div class="product-price">
+              10,000 EUR
+            </div>
+          </div>
+          <div class="product">
+            <a href="{{ route('shop.product', $product->slug) }}"
+              ><img src="/img/omega-seamaster.jpg" alt="product"
+            /></a>
+            <a href="{{ route('shop.product', $product->slug) }}"
+              ><div class="product-name">TJE LOMG</div></a
+            >
+            <div class="product-price">
+              10,000 EUR
+            </div>
+          </div>
+          <div class="product">
+            <a href="{{ route('shop.product', $product->slug) }}"
+              ><img src="/img/omega-seamaster.jpg" alt="product"
+            /></a>
+            <a href="{{ route('shop.product', $product->slug) }}"
+              ><div class="product-name">TJE LOMG</div></a
+            >
+            <div class="product-price">
+              10,000 EUR
+            </div>
+          </div>
+        </div>
+        <div class="spacer"></div>
+        <div class="text-center">
+          <button class="button">Zeige mehr Produkten</button>
+        </div>
+      </section>
+      <div class="spacer"></div>
+      <section class="newsletter">
+        <div class="newsletter-wrapper">
+          <h1 class="newsletter-heading">Watchers Newsletter</h1>
+          <p class="newsletter-text">
+            Always be the first to hear about our hottest sales events. <br />
+            Make sure to subscribe to benefit from exclusive early bird
+            specials.
+          </p>
+          <br />
+          <div class="input-wrapper">
+            <input
+              type="email"
+              class="newsletter-input"
+              placeholder="Enter your email"
+            /><input type="submit" value="SUBSCRIBE" class="button-reverse" />
+          </div>
+        </div>
+      </section>
+      <div class="spacer"></div>
+      <section class="brands" id="brands">
+        <div class="section-heading text-center">
+          <h1 class="brands-heading">Brands</h1>
+          <p class="brands-text">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet
+            hic, rem, delectus fugiat ad molestiae, vero corrupti fugit cum quos
+            dignissimos dicta. Obcaecati omnis ipsa, sapiente sunt minima
+            officiis quia!
+          </p>
+        </div>
+        <div class="spacer"></div>
+
+        <div class="brands-wrapper">
+          <div class="brands-product">
+            <div class="brands-product-text">IWC</div>
+            <a href="{{ route('shop.product', $product->slug) }}"
+              ><img src="/img/iwc-liegend.jpg" alt="product"
+            /></a>
+          </div>
+          <div class="brands-product">
+            <div class="brands-product-text">Jaeger-LC</div>
+            <a href="{{ route('shop.product', $product->slug) }}"
+              ><img src="/img/jaegerlc-liegend.jpg" alt="product"
+            /></a>
+          </div>
+          <div class="brands-product">
+            <div class="brands-product-text">Longines</div>
+            <a href="{{ route('shop.product', $product->slug) }}"
+              ><img src="/img/longines-liegend.jpg" alt="product"
+            /></a>
+          </div>
+          <div class="brands-product">
+            <div class="brands-product-text">Omega</div>
+            <a href="{{ route('shop.product', $product->slug) }}"
+              ><img src="/img/omega-liegend.jpg" alt="product"
+            /></a>
+          </div>
+          <div class="brands-product">
+            <div class="brands-product-text">Tudor</div>
+            <a href="{{ route('shop.product', $product->slug) }}"
+              ><img src="/img/tudor-liegend.jpg" alt="product"
+            /></a>
+          </div>
+          <div class="brands-product">
+            <div class="brands-product-text">Zenith</div>
+            <a href="{{ route('shop.product', $product->slug) }}"
+              ><img src="/img/zenith-liegend.jpg" alt="product"
+            /></a>
+          </div>
+        </div>
+      </section>
+    </main>
+    <!--MAIN END-->
+    <br /><br /><br /><br />
+    <footer class="footer">
+      <div class="footer-wrapper">
+        <div class="footer-left">
+          <h1 class="footer-heading">Kontakt</h1>
+          <p class="footer-email">service@watcher.de</p>
+          <p class="footer-phone">+49 175 6874 5489</p>
+          <p class="footer-openhours">Mon - Fri: 10am bis 6pm</p>
+          <br />
+          <div class="address">
+            <p class="name">WATCHERs GmbH</p>
+            <p class="street">Friedrchstraße 111/115</p>
+            <p class="city">22941 Hamburg</p>
+            <p class="country">Germany</p>
+          </div>
+        </div>
+        <div class="footer-center">
+          <h1 class="footer-heading">Service</h1>
+          <p class="footer-email">Dein Konto</p>
+          <p class="footer-phone">Lieferung</p>
+          <p class="footer-openhours">FAQ</p>
+        </div>
+        <div class="footer-right">
+          <h1 class="footer-heading">Firma</h1>
+          <p class="footer-email">Über uns</p>
+          <p class="footer-phone">Team</p>
+          <p class="footer-openhours">Jobs</p>
+        </div>
+        <div class="footer-newsletter">
+          <h1 class="footer-heading">Folge Uns</h1>
+          <br />
+          <div class="footer-icons-wrapper">
+            <div class="icon-box">
+              <svg class="icon">
+                <use xlink:href="img/sprite.svg#icon-instagram"></use>
+              </svg>
+            </div>
+            <div class="icon-box">
+              <svg class="icon">
+                <use xlink:href="img/sprite.svg#icon-twitter"></use>
+              </svg>
+            </div>
+            <div class="icon-box">
+              <svg class="icon">
+                <use xlink:href="img/sprite.svg#icon-youtube2"></use>
+              </svg>
+            </div>
+            <div class="icon-box">
+              <svg class="icon">
+                <use xlink:href="img/sprite.svg#icon-facebook2"></use>
+              </svg>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+    <!--FOOTER END-->
+    <!-- JavaScript -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script>
+      //TABS
+      function openCity(evt, cityName) {
+        var i, tabcontent, tablinks;
+        tabcontent = document.getElementsByClassName("tab-content");
+        for (i = 0; i < tabcontent.length; i++) {
+          tabcontent[i].style.display = "none";
+        }
+        tablinks = document.getElementsByClassName("tab-links");
+        for (i = 0; i < tablinks.length; i++) {
+          tablinks[i].className = tablinks[i].className.replace(" active", "");
+        }
+        document.getElementById(cityName).style.display = "grid";
+        evt.currentTarget.className += " active";
+      }
+
+      //STICKY HEADER
+      // When the user scrolls the page, execute myFunction
+      window.onscroll = function() {
+        stickyNav();
+      };
+
+      // Get the navbar
+      var navbar = document.getElementById("navbar");
+      var mobilenav = document.getElementById("mobile-nav");
+
+      // Get the offset position of the navbar
+      var sticky = navbar.offsetTop;
+
+      // Add the sticky class to the navbar when you reach its scroll position. Remove "sticky" when you leave the scroll position
+      function stickyNav() {
+        if (window.pageYOffset >= sticky) {
+          navbar.classList.add("sticky");
+          mobilenav.classList.add("mobile-sticky");
+        } else {
+          navbar.classList.remove("sticky");
+          mobilenav.classList.add("mobile-sticky");
+        }
+      }
+    </script>
+  </body>
+</html>

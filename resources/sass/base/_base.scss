@@ -1,0 +1,55 @@
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit; /*inherit from body*/
+}
+
+html {
+  font-size: 62.5%;
+
+  @include respond(tab-land) {
+    // width < 1200
+    font-size: 56.25%; //1rem = 9px, 9/16 = 56.25%
+  }
+
+  @include respond(tab-port) {
+    // width < 900
+    font-size: 50%; //we want 1rem = 8px in this case 8/16 = 50%, 4rem padding is no longer 40px but 4*8=32
+  }
+
+  @include respond(big-desktop) {
+    // width < 1800
+    font-size: 75%; //1rem = 12, 12/16 = 75%
+  }
+}
+
+body {
+  box-sizing: border-box;
+  min-width: 36rem;
+}
+
+//change selection color
+
+::selection {
+  background-color: $bg-primary;
+  color: $text-color-white;
+}
+
+a {
+  text-decoration: none;
+  color: $text-color;
+
+  &:visited {
+    color: $text-color;
+  }
+
+  &:hover {
+    color: lighten($text-color, 40%);
+  }
+}
+
+img {
+  max-width: 100%;
+}

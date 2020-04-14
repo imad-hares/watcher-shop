@@ -1,0 +1,131 @@
+section.wrapper {
+  width: 80%;
+  margin: 0 auto;
+  max-width: 120rem;
+
+  h1 {
+    font-size: 3.8rem;
+  }
+  p {
+    font-size: $default-font-size;
+  }
+}
+.tab-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-gap: 30px $gutter;
+
+  @include respond(tab-port) {
+    grid-template-columns: 1fr 1fr;
+  }
+  @include respond(phone) {
+    grid-template-columns: 1fr;
+  }
+}
+
+#onsale.tab-content {
+  display: none;
+}
+
+.product {
+  border-radius: 4px;
+  transition: transform 0.2s ease-in-out;
+
+  &:hover {
+    box-shadow: $shadow-light;
+    //transform: scale(1.1);
+  }
+
+  &-name {
+    font-size: $default-font-size;
+    color: $text-color;
+    text-align: center;
+  }
+  &-price {
+    font-size: $default-font-size;
+    color: lighten($text-color, 30%);
+    text-align: center;
+  }
+}
+
+.newsletter {
+  height: 28rem;
+  padding: 3.5rem 1.5rem;
+  background-image: linear-gradient(
+      to right bottom,
+      rgba($color-primary-light, 0.3),
+      rgba($color-primary-dark, 0.3)
+    ),
+    url(../../img/OmegaHintergund_1728x.jpg);
+  background-size: cover;
+  width: 100%;
+  color: $text-color-light;
+  background-color: #000000;
+
+  &-heading {
+    font-size: 4rem;
+  }
+  &-text {
+    font-size: $default-font-size;
+  }
+
+  &-wrapper {
+    max-width: 120rem;
+    margin: 0 auto;
+
+    .input-wrapper {
+      display: flex;
+      position: relative;
+
+      input[type="email"] {
+        width: 35rem;
+        height: 4.5rem;
+        background-color: $text-color-white;
+        display: inline-block;
+        padding: 7px 7px;
+      }
+
+      input[type="submit"] {
+        left: 32rem;
+        top: 0.6rem;
+      }
+    }
+  }
+}
+
+////BRANDS
+.brands {
+  h1 {
+    font-size: 3.8rem;
+  }
+  &-text {
+    margin: 0 auto;
+    width: 60%;
+    font-size: $default-font-size;
+    max-width: 120rem;
+  }
+  .brands-wrapper {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-gap: 30px $gutter;
+    width: 60%;
+    margin: 0 auto;
+    max-width: 120rem;
+    @include respond(phone) {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+
+  .brands-product {
+    position: relative;
+    &-text {
+      position: absolute;
+      font-size: 2.5rem;
+      font-weight: 500;
+      top: 0;
+      left: 1rem;
+    }
+  }
+}
+
+//FOOTER

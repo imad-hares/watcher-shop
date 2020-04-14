@@ -1,0 +1,23 @@
+.header-container {
+  width: 100vw;
+  border-bottom: 1px solid $border-color;
+  background-color: $bg-secondary;
+  z-index: 100;
+}
+header.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 80%;
+  max-width: 120rem;
+  margin: 0 auto;
+  height: 9rem;
+  background-size: cover;
+  background-position: top;
+  position: relative;
+  color: $text-color;
+  font-size: $default-font-size;
+  @include respond(phone) {
+    width: 100%;
+  }
+}

@@ -1,0 +1,50 @@
+.button {
+  border: 1px solid $text-color-black;
+  padding: 12px 40px;
+  color: $text-color;
+  background-color: $text-color-white;
+  cursor: pointer;
+
+  &:hover {
+    color: $text-color-white;
+    background: $color-primary-dark;
+  }
+
+  &.active {
+    color: $text-color-white;
+    background: $color-primary-dark;
+  }
+}
+
+.button-reverse {
+  border: 1px solid $text-color-black;
+  padding: 8px 30px;
+  color: $text-color-white;
+  background-color: $text-color-black;
+  cursor: pointer;
+
+  &:hover {
+    color: $text-color-black;
+    background: $text-color-white;
+  }
+}
+
+.hero-button {
+  cursor: pointer;
+  span {
+    color: $text-color;
+    background-color: $text-color-white;
+    border: 1px solid $text-color-black;
+    font-size: 1.4rem;
+    font-weight: 600;
+
+    padding: 1.4rem 5rem;
+    &:hover {
+      color: $text-color-white;
+      background: $color-primary-dark;
+    }
+    @include respond(phone) {
+      padding: 1.3rem;
+    }
+  }
+}

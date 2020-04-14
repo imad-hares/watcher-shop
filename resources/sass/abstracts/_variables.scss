@@ -1,0 +1,43 @@
+//MAIN
+$color-primary: #3238bc;
+$color-primary-light: rgba(50, 57, 188, 0.5);
+$color-primary-dark: #000116;
+
+//BACKGROUNDS
+$bg-primary: #3238bc;
+$bg-secondary: #f7f7f7;
+$bg-body: #ffffff;
+//FONT
+$default-font-size: 1.6rem;
+$text-primary: #3238bc;
+$text-color: #212121;
+$text-color-dark: #282828;
+$text-color-light: #f7f7f7;
+$text-color-white: #ffffff;
+$text-color-black: #000000;
+$text-color-grey: #919191;
+
+$border-color: #d6d6d6;
+$shadow-dark: 0 2rem 6rem rgba(0, 0, 0, 0.3);
+$shadow-light: 0 2rem 5rem rgba(0, 0, 0, 0.06);
+
+$border-line: 1px solid $border-color;
+
+// Typography
+$font-family: "Baloo Chettan 2", "open sans";
+$font-size-base: 0.9rem;
+$line-height-base: 1.6;
+$gutter: 30px;
+
+//RESPONSIVE
+$bp-largest: 75em; // 1200px
+$bp-large: 68.75em; // 1100px
+$bp-medium: 56.25em; // 900px
+$bp-small: 37.5em; // 600px
+$bp-smallest: 31.25em; // 500px
+
+/*background-image: linear-gradient(
+        to right bottom, 
+        rgba($color-primary-light, 0.8), 
+        rgba($color-primary-dark, 0.8)),
+    url(../img/hero-small.jpg);*/
