@@ -3,6 +3,7 @@
 /public/storage
 /storage/*.key
 /vendor
+/vueMastery
 *.env
 .env.example
 .env.backup
